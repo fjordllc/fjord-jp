@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>FJÖRD,LLC.</title>
+  <subtitle>We Build Apps</subtitle>
+  <id>http://machida.github.io/articles</id>
+  <link href="http://machida.github.io/articles"/>
+  <link href="http://machida.github.io/feed.xml" rel="self"/>
+  <updated>2016-07-04T13:35:00+09:00</updated>
+  <author>
+    <name>FJÖRD,LLC.</name>
+  </author>
+  <entry>
+    <title>怖話2016年6月のアクセス数・収益</title>
+    <link rel="alternate" href="http://machida.github.io/articles/20160704-article/"/>
+    <id>http://machida.github.io/articles/20160704-article/</id>
+    <published>2016-07-04T13:35:00+09:00</published>
+    <updated>2016-07-29T18:13:28+09:00</updated>
+    <author>
+      <name>FJÖRD,LLC.</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;a href="http://twitter.com/komagata"&gt;@komagata&lt;/a&gt;です。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://kowabana.jp" title="怖話"&gt;怖話&lt;/a&gt;（ &lt;a href="http://kowabana.jp" title="怖話"&gt;http://kowabana.jp&lt;/a&gt;）の6月のアクセス数と収益のまとめです。  &lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://kowabana.jp"&gt;&lt;img src="https://i.gyazo.com/7ac945b83db4936a1cd4947a6ea0c60b.png" alt="怖話" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;怖話とはスマホで怖い話がサウンドノベル風に見れる・投稿できるWebサイトです。 &lt;a href="https://itunes.apple.com/jp/app/bu-hua-zui-buno1wan5000huano/id564486792?l=ja&amp;amp;mt=8" title="怖話iPhone・iPadアプリ版"&gt;iPhone・iPadアプリ版&lt;/a&gt;、 &lt;a href="https://play.google.com/store/apps/details?id=jp.fjord.kowabana" title="怖話Androidアプリ版"&gt;Androidアプリ版&lt;/a&gt;もあります。&lt;/p&gt;
+
+&lt;h4&gt;アクセス数&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src="https://gyazo.com/092190a3bc1027011b81a44849a0a8c6.png" alt="ユーザー サマリー - Google Analytics" /&gt;&lt;/p&gt;
+
+&lt;p&gt;約151万PVでした。先月が173万PVなのでかなり減っています。&lt;/p&gt;
+
+&lt;h4&gt;収益&lt;/h4&gt;
+
+&lt;p&gt;約10万円でした。先月が約4万円だったので倍増です。これは広告を大幅に増やした効果です。&lt;/p&gt;
+
+&lt;p&gt;しかし、怖話の収益モデルだとこのPVではこのぐらいの収益で安定してしまいそうです。（Googleアドセンスが規約上使えないため）&lt;/p&gt;
+
+&lt;h4&gt;今後&lt;/h4&gt;
+
+&lt;p&gt;夏に向けてサイトのパフォーマンス改善の取り組みをいくつか行い、結果が出ています。またとにかくバグゼロを目指してバグフィックスを行っています。 それらが落ち着いたところで怖い話作者への読者登録と更新通知の機能を入れようと思っています。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>サイト運営者のためのコンテンツをコピーされた時の対処方法</title>
+    <link rel="alternate" href="http://machida.github.io/articles/20160617-article/"/>
+    <id>http://machida.github.io/articles/20160617-article/</id>
+    <published>2016-06-17T14:16:00+09:00</published>
+    <updated>2016-07-29T18:13:28+09:00</updated>
+    <author>
+      <name>FJÖRD,LLC.</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;img src="https://cloud.githubusercontent.com/assets/10114122/14164468/e3e40f46-f73a-11e5-81a8-22f9402bea20.png" alt="E3e40f46 f73a 11e5 81a8 22f9402bea20" /&gt;&lt;/p&gt;
+
+&lt;p&gt;弊社が運営している &lt;a href="http://kowabana.jp"&gt;怖い話投稿サイト 怖話（こわばな）&lt;/a&gt;でユーザーの投稿した怖い話が他のサイトにコピーされていました。 それを解決できたので同じように困っている方がいるかもしれないので、参考までにどうやって解決したのかを紹介します。&lt;/p&gt;
+
+&lt;h4&gt;経緯&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;怖話の怖い話がコピーされ、とあるサイトに転載された。54件目視で確認したが、恐らく3,507件コピーされていると見られる。（対象のサイトの全コンテンツ数が3,507件のため）&lt;/li&gt;
+&lt;li&gt;ユーザーから自分の投稿がコピーされているので辞めさせて欲しいとのお問い合わせがあった。&lt;/li&gt;
+&lt;li&gt;サイトにメールアドレスなどの連絡先が一切ないためコンテンツ取り下げ依頼も出せない。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;結果&lt;/h4&gt;
+
+&lt;p&gt;サイトが動いているレンタルサーバー会社に連絡し、サイトを削除してもらった。  &lt;/p&gt;
+
+&lt;h4&gt;やったこと&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;まずサイトの連絡先を探しましました。該当サイトには連絡先がありませんでした。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;該当サイトのドメインからWHOISの情報を調べました。（whoisコマンドやネット上のWHOISサービスを使います。） そこに管理者情報として連絡先が載っていればよいですが、大抵はドメイン取得サービスの代理の情報が載っています。IPアドレスを確認しておきます。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;IPアドレスで検索しました。さくらインターネットが持っていて、レンタルサーバーに使っているIP帯だとわかりました。（ここはもっと確実な方法があるかもしれません。レンタルサーバーがわからなければWHOISからドメイン会社に連絡したと思います。）&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;さくらインターネットは迷惑行為や不正行為専門の問い合わせフォーム（ &lt;a href="https://secure.sakura.ad.jp/form/abuse.php"&gt;abuse問合せフォーム｜さくらインターネット公式サポートサイト&lt;/a&gt;）があります。そこから下記のやり取りをしました。ご参考までに最初の送信内容をエントリーの最後に全文掲載します。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;色々やり取りした結果、個人情報なので契約者の連絡先は教えることはできないが、こちらの内容を伝えることはできるとのことなので伝えてもらったところ、先方がサイトごと削除してくれたようです。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4&gt;感想&lt;/h4&gt;
+
+&lt;p&gt;ネット黎明期と違い法律や対応方法が広まってきていて、きちんと手順を踏めば大抵の違法行為はやめさせることができるなと感じました。&lt;/p&gt;
+
+&lt;h4&gt;最初に送信したお問い合わせ内容&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;さくらインターネット abuse対策チーム ご担当者様&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;貴社サーバーを利用して運営されているサイト「読んではいけない怖い話（horrorstory.top）」ですが、弊社が運営するサイト「怖話」に掲載している内容を無断で転載しているため、弊社が有する著作権を侵害しています。 つきましては、掲載内容の即時削除を請求します。&lt;/p&gt;
+
+&lt;p&gt;弊社サイトに掲載されている事項は、会員様から著作権等が譲渡され、弊社に帰属するものです。 詳細につきましては、弊社利用規約をご参照ください。 &lt;a href="http://kowabana.jp/tos"&gt;http://kowabana.jp/tos&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;今回該当するURLは以下の通りです。 4月5日（火）投稿 臨死（弊社URL：&lt;a href="http://kowabana.jp/stories/25942%EF%BC%89"&gt;http://kowabana.jp/stories/25942）&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-転載先URL：&lt;a href="http://horrorstory.top/2016/04/05/%E8%87%A8%E6%AD%BB/"&gt;http://horrorstory.top/2016/04/05/%E8%87%A8%E6%AD%BB/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;車でのアレにはご注意を（弊社URL：&lt;a href="http://kowabana.jp/stories/25941%EF%BC%89"&gt;http://kowabana.jp/stories/25941）&lt;/a&gt; -転載先URL：&lt;a href="http://horrorstory.top/2016/04/05/%E8%BB%8A%E3%81%A7%E3%81%AE%E3%82%A2%E3%83%AC%E3%81%AB%E3%81%AF%E3%81%94%E6%B3%A8%E6%84%8F%E3%82%92/"&gt;http://horrorstory.top/2016/04/05/%E8%BB%8A%E3%81%A7%E3%81%AE%E3%82%A2%E3%83%AC%E3%81%AB%E3%81%AF%E3%81%94%E6%B3%A8%E6%84%8F%E3%82%92/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;裸足の足音（弊社URL：&lt;a href="http://kowabana.jp/stories/25940%EF%BC%89"&gt;http://kowabana.jp/stories/25940）&lt;/a&gt; -転載先URL：&lt;a href="http://horrorstory.top/2016/04/05/%E7%9C%9F%E5%A4%9C%E4%B8%AD%E3%81%AE%E8%B6%B3%E9%9F%B3/"&gt;http://horrorstory.top/2016/04/05/%E7%9C%9F%E5%A4%9C%E4%B8%AD%E3%81%AE%E8%B6%B3%E9%9F%B3/&lt;/a&gt; ※ 題名は「真夜中の足音」とありますが、内容は同じです。&lt;/p&gt;
+
+&lt;p&gt;4月4日（月）投稿 売家（弊社URL：&lt;a href="http://kowabana.jp/stories/25939%EF%BC%89"&gt;http://kowabana.jp/stories/25939）&lt;/a&gt; -転載先URL：&lt;a href="http://horrorstory.top/2016/04/04/%E5%A3%B2%E5%AE%B6/"&gt;http://horrorstory.top/2016/04/04/%E5%A3%B2%E5%AE%B6/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;4月2日（土）投稿 ゴミ当番（弊社URL：&lt;a href="http://kowabana.jp/stories/25928%EF%BC%89"&gt;http://kowabana.jp/stories/25928）&lt;/a&gt; -転載先URL：&lt;a href="http://horrorstory.top/2016/04/02/%E3%82%B4%E3%83%9F%E5%BD%93%E7%95%AA/"&gt;http://horrorstory.top/2016/04/02/%E3%82%B4%E3%83%9F%E5%BD%93%E7%95%AA/&lt;/a&gt; 2016/4/2 こちらでは、記事を投稿した弊社ユーザー名とそのアドレスが末尾に明記されていることから、転載していることは明らかです。&lt;/p&gt;
+
+&lt;p&gt;2016年3月24日（木） ソファに1人、トイレの前に1人、半年後（弊社URL：&lt;a href="http://kowabana.jp/stories/25870"&gt;http://kowabana.jp/stories/25870&lt;/a&gt; -転載先URL：&lt;a href="http://horrorstory.top/2016/03/24/%E3%82%BD%E3%83%95%E3%82%A1%E3%81%AB1%E4%BA%BA%E3%80%81%E3%83%88%E3%82%A4%E3%83%AC%E3%81%AE%E5%89%8D%E3%81%AB1%E4%BA%BA%E3%80%81%E5%8D%8A%E5%B9%B4%E5%BE%8C/"&gt;http://horrorstory.top/2016/03/24/%E3%82%BD%E3%83%95%E3%82%A1%E3%81%AB1%E4%BA%BA%E3%80%81%E3%83%88%E3%82%A4%E3%83%AC%E3%81%AE%E5%89%8D%E3%81%AB1%E4%BA%BA%E3%80%81%E5%8D%8A%E5%B9%B4%E5%BE%8C/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2016年3月3日 ある日の出来事【後編】（弊社URL：&lt;a href="http://kowabana.jp/stories/25731%EF%BC%89"&gt;http://kowabana.jp/stories/25731）&lt;/a&gt; -転載先URL：&lt;a href="http://horrorstory.top/2016/03/03/%E3%81%82%E3%82%8B%E6%97%A5%E3%81%AE%E5%87%BA%E6%9D%A5%E4%BA%8B%E3%80%90%E5%BE%8C%E7%B7%A8%E3%80%91/"&gt;http://horrorstory.top/2016/03/03/%E3%81%82%E3%82%8B%E6%97%A5%E3%81%AE%E5%87%BA%E6%9D%A5%E4%BA%8B%E3%80%90%E5%BE%8C%E7%B7%A8%E3%80%91/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2016年2月1日（月） 真夜中のコンビニ（弊社URL：&lt;a href="http://kowabana.jp/stories/25477%EF%BC%89"&gt;http://kowabana.jp/stories/25477）&lt;/a&gt; -転載先URL：&lt;a href="http://horrorstory.top/2016/02/01/%E7%9C%9F%E5%A4%9C%E4%B8%AD%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8B/"&gt;http://horrorstory.top/2016/02/01/%E7%9C%9F%E5%A4%9C%E4%B8%AD%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8B/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2016年1月26日（火）投稿 寝オチ（弊社URL：&lt;a href="http://kowabana.jp/stories/25426%EF%BC%89"&gt;http://kowabana.jp/stories/25426）&lt;/a&gt; -転載先URL：&lt;a href="http://horrorstory.top/2016/01/26/%E5%AF%9D%E3%82%AA%E3%83%81/"&gt;http://horrorstory.top/2016/01/26/%E5%AF%9D%E3%82%AA%E3%83%81/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;アンケート集計終了と公開のお知らせ -転載先URL：&lt;a href="http://horrorstory.top/2016/01/26/%E3%82%A2%E3%83%B3%E3%82%B1%E3%83%BC%E3%83%88%E9%9B%86%E8%A8%88%E7%B5%82%E4%BA%86%E3%81%A8%E5%85%AC%E9%96%8B%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B/"&gt;http://horrorstory.top/2016/01/26/%E3%82%A2%E3%83%B3%E3%82%B1%E3%83%BC%E3%83%88%E9%9B%86%E8%A8%88%E7%B5%82%E4%BA%86%E3%81%A8%E5%85%AC%E9%96%8B%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B/&lt;/a&gt; こちら、弊社URLがすでに削除されておりますが、冒頭で「みなさまこんにちは、紅茶ミルク番長です。アンケートの終了・集計結果がでましたので、ここで報告をさせていただきます。」とあり、この「紅茶ミルク番長」様は弊社ユーザーです。また文中に「怖話作者の皆様に参加・不参加の確認のために招待状を一斉送信させて頂きます。」とあり、弊社サイト「怖話」で投稿された内容であることは明らかです。&lt;/p&gt;
+
+&lt;p&gt;これと同様に、怖話サイト内での連絡事項が転載されているURLは以下の通りです。 2016年4月2日（土）&lt;/p&gt;
+
+&lt;p&gt;パクリサイト対策：&lt;a href="http://horrorstory.top/2016/04/02/%E3%83%91%E3%82%AF%E3%83%AA%E3%82%B5%E3%82%A4%E3%83%88%E5%AF%BE%E7%AD%96/"&gt;http://horrorstory.top/2016/04/02/%E3%83%91%E3%82%AF%E3%83%AA%E3%82%B5%E3%82%A4%E3%83%88%E5%AF%BE%E7%AD%96/&lt;/a&gt; 2016年1月16日（土） 第二回【祝祭リレー】に関するアンケートの途中結果：&lt;a href="http://horrorstory.top/2016/01/16/%E7%AC%AC%E4%BA%8C%E5%9B%9E%E3%80%90%E7%A5%9D%E7%A5%AD%E3%83%AA%E3%83%AC%E3%83%BC%E3%80%91%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%82%A2%E3%83%B3%E3%82%B1%E3%83%BC%E3%83%88%E3%81%AE%E9%80%94%E4%B8%AD/"&gt;http://horrorstory.top/2016/01/16/%E7%AC%AC%E4%BA%8C%E5%9B%9E%E3%80%90%E7%A5%9D%E7%A5%AD%E3%83%AA%E3%83%AC%E3%83%BC%E3%80%91%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%82%A2%E3%83%B3%E3%82%B1%E3%83%BC%E3%83%88%E3%81%AE%E9%80%94%E4%B8%AD/&lt;/a&gt; 2016年1月12日（火） 申し訳ありません：&lt;a href="http://horrorstory.top/2016/01/12/%E7%94%B3%E3%81%97%E8%A8%B3%E3%81%82%E3%82%8A%E3%81%BE%E3%81%9B%E3%82%93/"&gt;http://horrorstory.top/2016/01/12/%E7%94%B3%E3%81%97%E8%A8%B3%E3%81%82%E3%82%8A%E3%81%BE%E3%81%9B%E3%82%93/&lt;/a&gt; 2015年12月31日（木） 小さいころの夢（弊社URL：&lt;a href="http://kowabana.jp/stories/25147%EF%BC%89"&gt;http://kowabana.jp/stories/25147）&lt;/a&gt; -転載先URL：&lt;a href="http://horrorstory.top/2015/12/31/%E5%B0%8F%E3%81%95%E3%81%84%E9%A0%83%E3%81%AE%E5%A4%A2/"&gt;http://horrorstory.top/2015/12/31/%E5%B0%8F%E3%81%95%E3%81%84%E9%A0%83%E3%81%AE%E5%A4%A2/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2015年12月20日（日） 夢か現か。（弊社URL：&lt;a href="http://kowabana.jp/stories/25086%EF%BC%89"&gt;http://kowabana.jp/stories/25086）&lt;/a&gt; -転載先URL：&lt;a href="http://horrorstory.top/2015/12/20/%E5%A4%A2%E3%81%8B%E7%8F%BE%E3%81%8B%E3%80%82/"&gt;http://horrorstory.top/2015/12/20/%E5%A4%A2%E3%81%8B%E7%8F%BE%E3%81%8B%E3%80%82/&lt;/a&gt; こちらの冒頭で「怖話に訪れていらっしゃる皆様、初めまして。まめのすけ。と申します。」とあります。これは、弊社のサイト「怖話」の会員様「まめのすけ。」様であり、弊社サイトに投稿した内容がそのまま転載されていることが明らかです。&lt;/p&gt;
+
+&lt;p&gt;2015年11月27日（金）投稿 拾った携帯電話（弊社URL：&lt;a href="http://kowabana.jp/stories/24879%EF%BC%89"&gt;http://kowabana.jp/stories/24879）&lt;/a&gt; -転載先URL：&lt;a href="http://horrorstory.top/2015/11/27/%E6%8B%BE%E3%81%A3%E3%81%9F%E6%90%BA%E5%B8%AF%E9%9B%BB%E8%A9%B1/"&gt;http://horrorstory.top/2015/11/27/%E6%8B%BE%E3%81%A3%E3%81%9F%E6%90%BA%E5%B8%AF%E9%9B%BB%E8%A9%B1/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2015年11月25日（水）投稿 滝不動（弊社URL：&lt;a href="http://kowabana.jp/stories/24871%EF%BC%89"&gt;http://kowabana.jp/stories/24871）&lt;/a&gt; -転載先URL：&lt;a href="http://horrorstory.top/2015/11/25/%E6%BB%9D%E4%B8%8D%E5%8B%95/"&gt;http://horrorstory.top/2015/11/25/%E6%BB%9D%E4%B8%8D%E5%8B%95/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;カルト（弊社URLhttp://kowabana.jp/stories/24874） -転載先URL：&lt;a href="http://horrorstory.top/2015/11/25/%E3%82%AB%E3%83%AB%E3%83%88/"&gt;http://horrorstory.top/2015/11/25/%E3%82%AB%E3%83%AB%E3%83%88/&lt;/a&gt; こちらが「読んではいけない怖い話（horrorstory.top）」の一番最初の投稿です。&lt;/p&gt;
+
+&lt;p&gt;上記記事以外にも、弊社サイトの無断転載が見受けられます。 早急なる対応と、適切な処置をお願いいたします。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>怖話2016年5月のアクセス数・収益</title>
+    <link rel="alternate" href="http://machida.github.io/articles/20160606-article/"/>
+    <id>http://machida.github.io/articles/20160606-article/</id>
+    <published>2016-06-06T11:33:00+09:00</published>
+    <updated>2016-07-29T18:13:28+09:00</updated>
+    <author>
+      <name>FJÖRD,LLC.</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;a href="http://twitter.com/komagata"&gt;@komagata&lt;/a&gt;です。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://kowabana.jp" title="怖話"&gt;怖話&lt;/a&gt;（ &lt;a href="http://kowabana.jp" title="怖話"&gt;http://kowabana.jp&lt;/a&gt;）の5月のアクセス数と収益のまとめです。  &lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://kowabana.jp"&gt;&lt;img src="https://i.gyazo.com/7ac945b83db4936a1cd4947a6ea0c60b.png" alt="怖話" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;怖話とはスマホで怖い話がサウンドノベル風に見れる・投稿できるWebサイトです。 &lt;a href="https://itunes.apple.com/jp/app/bu-hua-zui-buno1wan5000huano/id564486792?l=ja&amp;amp;mt=8" title="怖話iPhone・iPadアプリ版"&gt;iPhone・iPadアプリ版&lt;/a&gt;、 &lt;a href="https://play.google.com/store/apps/details?id=jp.fjord.kowabana" title="怖話Androidアプリ版"&gt;Androidアプリ版&lt;/a&gt;もあります。  &lt;/p&gt;
+
+&lt;h4&gt;アクセス数&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src="https://gyazo.com/7fc57e5a9852e4bff0082b0dd4e94872.png" alt="ユーザー サマリー - Google Analytics" /&gt;&lt;/p&gt;
+
+&lt;p&gt;約173万PVでした。先月が150万PVなので結構増えてますね。  &lt;/p&gt;
+
+&lt;h4&gt;収益&lt;/h4&gt;
+
+&lt;p&gt;約4万円でした。先月が約3万円だったので微増です。各種一覧ページに広告を入れたのですがそこの収益率がかなり良いです。（と言うより従来の広告が悪すぎるのですが…）  &lt;/p&gt;
+
+&lt;h4&gt;今後&lt;/h4&gt;
+
+&lt;p&gt;６月の数字として出てくるとおもいますが、現在スマホ・PC共にネイティブ広告を大胆に入れて収益が改善することが確認できました。あとは単純にPVを増やす施策を行うことになると思います。&lt;/p&gt;
+
+&lt;p&gt;一番の優先度で考えているのはアプリ版の通知機能です。今はObjective-Cで書かれているのでSwiftに書き換えようかと考えています。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>怖話2016年4月のアクセス数・収益</title>
+    <link rel="alternate" href="http://machida.github.io/articles/20160525-article/"/>
+    <id>http://machida.github.io/articles/20160525-article/</id>
+    <published>2016-05-25T17:20:00+09:00</published>
+    <updated>2016-07-29T18:13:28+09:00</updated>
+    <author>
+      <name>FJÖRD,LLC.</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;a href="http://twitter.com/komagata"&gt;@komagata&lt;/a&gt;です。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://kowabana.jp" title="怖話"&gt;怖話&lt;/a&gt;（ &lt;a href="http://kowabana.jp" title="怖話"&gt;http://kowabana.jp&lt;/a&gt;）の4月のアクセス数と収益のまとめです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://kowabana.jp"&gt;&lt;img src="https://i.gyazo.com/7ac945b83db4936a1cd4947a6ea0c60b.png" alt="怖話" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;怖話とはスマホで怖い話がサウンドノベル風に見れる・投稿できるWebサイトです。 &lt;a href="https://itunes.apple.com/jp/app/bu-hua-zui-buno1wan5000huano/id564486792?l=ja&amp;amp;mt=8" title="怖話iPhone・iPadアプリ版"&gt;iPhone・iPadアプリ版&lt;/a&gt;、 &lt;a href="https://play.google.com/store/apps/details?id=jp.fjord.kowabana" title="怖話Androidアプリ版"&gt;Androidアプリ版&lt;/a&gt;もあります。&lt;/p&gt;
+
+&lt;h4&gt;アクセス数&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src="https://gyazo.com/ce303f2bcfc63f138ce9440d116c0104.png" alt="ユーザー サマリー - Google Analytics" /&gt;&lt;/p&gt;
+
+&lt;p&gt;約150万PVでした。先月が167万PVなので減ってます。&lt;/p&gt;
+
+&lt;h4&gt;収益&lt;/h4&gt;
+
+&lt;p&gt;約3万円でした。先月が約4万円だったので減ってます。広告は今丁度手を入れているところなので今後の推移を見守りたいです。&lt;/p&gt;
+
+&lt;h4&gt;今後&lt;/h4&gt;
+
+&lt;p&gt;5月から@komagataが週に2日は怖話の作業に充てられるようになるので広告を改善する予定です。怖話はテキスト主体なのでネイティブ広告を入れる予定です。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>怖話2016年3月のアクセス数・収益</title>
+    <link rel="alternate" href="http://machida.github.io/articles/20160510-article/"/>
+    <id>http://machida.github.io/articles/20160510-article/</id>
+    <published>2016-05-10T19:22:00+09:00</published>
+    <updated>2016-07-29T18:13:28+09:00</updated>
+    <author>
+      <name>FJÖRD,LLC.</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;a href="http://twitter.com/komagata"&gt;@komagata&lt;/a&gt;です。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://kowabana.jp" title="怖話"&gt;怖話&lt;/a&gt;（ &lt;a href="http://kowabana.jp" title="怖話"&gt;http://kowabana.jp&lt;/a&gt;）の3月のアクセス数と収益のまとめです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://kowabana.jp"&gt;&lt;img src="http://i.gyazo.com/19e880127697f2aa72533b8e32ed6a2a.png" alt="怖話" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;怖話とはスマホで怖い話がサウンドノベル風に見れる・投稿できるWebサイトです。 &lt;a href="https://itunes.apple.com/jp/app/bu-hua-zui-buno1wan5000huano/id564486792?l=ja&amp;amp;mt=8" title="怖話iPhone・iPadアプリ版"&gt;iPhone・iPadアプリ版&lt;/a&gt;、 &lt;a href="https://play.google.com/store/apps/details?id=jp.fjord.kowabana" title="怖話Androidアプリ版"&gt;Androidアプリ版&lt;/a&gt;もあります。&lt;/p&gt;
+
+&lt;h4&gt;アクセス数&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src="https://gyazo.com/bcfa8ac1cfcfab2cc1e5439cdcad862c.png" alt="ユーザー サマリー - Google Analytics" /&gt;&lt;/p&gt;
+
+&lt;p&gt;約167万PVでした。先月が165万PVなので微増です。&lt;/p&gt;
+
+&lt;h4&gt;収益&lt;/h4&gt;
+
+&lt;p&gt;約4万円でした。先月が約2万円だったので増えてます。&lt;/p&gt;
+
+&lt;h4&gt;今後&lt;/h4&gt;
+
+&lt;p&gt;PV・収益が低いレベルで安定しているのは気になります。 今月はiPhone版の新バージョンをようやく公開することができました。 来月は広告関連に手を入れて収益増加を狙いたいです。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>warichan が初 Pull Request</title>
+    <link rel="alternate" href="http://machida.github.io/articles/20160311-article/"/>
+    <id>http://machida.github.io/articles/20160311-article/</id>
+    <published>2016-03-11T11:10:00+09:00</published>
+    <updated>2016-07-29T18:13:28+09:00</updated>
+    <author>
+      <name>FJÖRD,LLC.</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;img src="https://i.gyazo.com/f9409848172631352f6cc69f9d95cc0e.png" alt="https://gyazo.com/f9409848172631352f6cc69f9d95cc0e" /&gt;&lt;/p&gt;
+</content>
+  </entry>
+</feed>

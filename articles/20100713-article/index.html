@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <link href="/stylesheets/application.css" rel="stylesheet" /><link href="/stylesheets/highlight.css" rel="stylesheet" /><link href="//fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" /><script src="/javascripts/application.js"></script><title>コードDJ 第7回 - WordPressの擬似cron機構 - FJÖRD,LLC.</title>
+    <meta content="毎週火曜日、Help me, hackers!に上がったコードを紹介していくコードDJ 第7回。今、流行の２４シーズン１を見ているkomagata a.k.a. DJ（@流行に疎い方）です。今回紹介するコードはコレ。任意の..." name="description" />
+    <meta content="article" property="og:type" />
+    <meta content="コードDJ 第7回 - WordPressの擬似cron機構 - FJÖRD,LLC." property="og:title" />
+    <meta content="毎週火曜日、Help me, hackers!に上がったコードを紹介していくコードDJ 第7回。今、流行の２４シーズン１を見ているkomagata a.k.a. DJ（@流行に疎い方）です。今回紹介するコードはコレ。任意の..." property="og:description" />
+    <meta content="http://machida.github.io//articles/20100713-article/" property="og:url" />
+    <meta content="shared/og-image.png" property="og:image" />
+    <meta content="FJÖRD,LLC. We Build Apps" property="og:site_name" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="@machida" name="twitter:site" />
+    <meta content="@machida" name="twitter:creator" />
+    <meta content="コードDJ 第7回 - WordPressの擬似cron機構 - FJÖRD,LLC." name="twitter:title" />
+    <meta content="毎週火曜日、Help me, hackers!に上がったコードを紹介していくコードDJ 第7回。今、流行の２４シーズン１を見ているkomagata a.k.a. DJ（@流行に疎い方）です。今回紹介するコードはコレ。任意の..." name="twitter:description" />
+    <meta content="shared/og-image.png" name="twitter:image:src" />
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+  </head>
+  <body itemscope="" itemtype="http://schema.org/Blog">
+    <header class="header">
+      <div class="container">
+        <div class="header__container">
+          <p class="header__site-name">
+            合同会社フィヨルド 
+          </p>
+          <img src="/images/icicle.svg" class="header__icicle-image" alt="Icicle" /><a href="/contact" class="header__contact-link"><i class="fa fa-envelope-o"></i></a>
+        </div>
+      </div>
+    </header><div class="hero">
+      <div class="container">
+        <div class="hero__container">
+          <h1 class="hero__site-title"><a href="/" data-text="FJÖRD,LLC." class="hero__site-title-link">
+                    <img src="/images/logo.svg" alt="FJÖRD,LLC." class="hero__site-title-link-image" /></a>
+          </h1>
+          <nav class="global-nav">
+            <ul class="global-nav__items">
+              <li class="global-nav__item"><a href="/articles" class="global-nav__item-link is-en">
+                            Articles</a>
+              </li>
+              <li class="global-nav__item"><a href="" class="global-nav__item-link is-en">
+                            Contact</a>
+              </li>
+              <li class="global-nav__item"><a href="" class="global-nav__item-link is-en">
+                            Access</a>
+              </li>
+              <li class="global-nav__item"><a href="" class="global-nav__item-link is-en">
+                            Internship</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="body"><div class="container article__container" itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <div class="row">
+    <div class="offset-sm-2 col-sm-8 col-xs-12">
+      <div class="article__content">
+        <time class="article__created-at is-en" itemprop="dateCreated"><span class="article__created-at-date">07/13</span><span class="article__created-at-year">2010</span></time>
+        <div class="article__header">
+          <h1 class="article__title" itemprop="headline"><a href="/articles/20100713-article/" class="article__title-link is-ja">
+                        コードDJ 第7回 - WordPressの擬似cron機構</a>
+          </h1>
+          <div class="article__tags" itemprop="keywords">
+            <ul class="article__tags-items">
+              <li class="article__tags-item">
+                <a href="/articles/tags/help-me-hackers/" class="article__tags-link is-en">help-me-hackers</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="article__body post-body js-target-blank" itemprop="articleBody"><p>毎週火曜日、Help me, hackers!に上がったコードを紹介していくコードDJ 第7回。</p>
+
+<p>今、流行の２４シーズン１を見ているkomagata a.k.a. DJ（@流行に疎い方）です。</p>
+
+<p>今回紹介するコードはコレ。</p>
+
+<p><a href="http://help-me-hackers.com/tasks/93">任意の期間、ブログが更新されないとメールが飛ぶwordpressのplugin - Help me, hackers!</a></p>
+
+<p>出題したのは <a href="http://help-me-hackers.com/machida">@machida</a> a.k.a. お米嫌い。議論に対していきなりコードで回答を示したのが <a href="http://help-me-hackers.com/terakuma">@terakuma</a> a.k.a. 法務系PHPer。</p>
+
+<p>コード：</p>
+
+<p>[cc lang=&ldquo;php&rdquo;]&lt;?php /*<br>
+Plugin Name: Remember The WordPress<br>
+Plugin URI: <a href="http://github.com/e2esoundcom/Remember-The-WordPress">http://github.com/e2esoundcom/Remember-The-WordPress</a><br>
+Description: If you forgot write a new post,this plugin send you E-mail.<br>
+Version: 0.2<br>
+Author: Yuya Terajima<br>
+Author URI: <a href="http://www.e2esound.com/">http://www.e2esound.com/</a><br>
+*/</p>
+
+<p>/* When Activate Plugin<br>
+==================================================================== */<br>
+function rtw<em>activate() {<br>
+    $time = time();<br>
+    $terms = 7; //default terms<br>
+    $unixtime</em>per<em>day = 86400;<br>
+    $email = get</em>bloginfo(&lsquo;admin_email&rsquo;);<br>
+    $subject = &ldquo;Remember the WordPress!!&rdquo;;<br>
+    $message = &ldquo;Blogの更新が滞っているようです。サイトの更新をお願いします。&rdquo;;</p>
+
+<p>if(!get<em>option(&#39;rtw</em>initialized&rsquo;) || get<em>option(&#39;rtw</em>initialized&rsquo;) !== $time) {<br>
+        update<em>option(&#39;rtw</em>initialized&rsquo;,$time);<br>
+    }<br>
+    if(!get<em>option(&#39;rtw</em>terms&rsquo;)) {<br>
+        update<em>option(&#39;rtw</em>terms&rsquo;,$terms * $unixtime<em>per</em>day);<br>
+    }<br>
+    if(!get<em>option(&#39;rtw</em>email&rsquo;)) {<br>
+        update<em>option(&#39;rtw</em>email&rsquo;,$email);<br>
+    }<br>
+    if(!get<em>option(&#39;rtw</em>subject&rsquo;)) {<br>
+        update<em>option(&#39;rtw</em>subject&rsquo;,$subject);<br>
+    }<br>
+    if(!get<em>option(&#39;rtw</em>message&rsquo;)) {<br>
+        update<em>option(&#39;rtw</em>message&rsquo;,$message);<br>
+    }<br>
+    wp<em>schedule</em>event($time + 86400, &#39;daily&rsquo;, &#39;rtw<em>cron&rsquo;);<br>
+}<br>
+register</em>activation<em>hook( _</em>FILE__ , &#39;rtw_activate&rsquo;);</p>
+
+<p>function get<em>latest</em>post<em>time() {<br>
+    global $wpdb;<br>
+    $query = &ldquo;SELECT post</em>date FROM &rdquo;.$wpdb-&gt;posts.&ldquo; WHERE post_status = &#39;publish&rsquo; ORDER BY <code>&quot;.$wpdb-&gt;posts.&quot;</code>.<code>post\_date</code> DESC LIMIT 0,1&rdquo;; $query = $wpdb-&gt;prepare($query); return strtotime($wpdb-&gt;get_var($query)); }</p>
+
+<p>function rtw_sendmail() { $subject = get_option(&#39;rtw_subject&rsquo;); $mailbody = get_option(&#39;rtw_message&rsquo;); $to_email = get_option(&#39;rtw_email&rsquo;); mb_send_mail($to_email,$subject,$mailbody); }</p>
+
+<p>function rtw_compare_time(){ $unixtime_per_day = 86400; $latest = get_latest_post_time(); $terms = intval(get_option(&#39;rtw_terms&rsquo;)) + intval($latest); $time = time();</p>
+
+<p>if(intval($terms) &lt; intval($time)){ rtw_sendmail(); } } add_action(&#39;rtw_cron&rsquo;, &#39;rtw_compare_time&rsquo;);</p>
+
+<p>/* When New Post or Edited Post. ==================================================================== */</p>
+
+<p>function rtw_new_posted(){ update_option(&#39;rtw_initialized&rsquo;,time()); } add_action(&#39;publish_post&rsquo;,&#39;rtw_new_posted&rsquo;);</p>
+
+<p>/* When De-Activate Plugin ==================================================================== */</p>
+
+<p>function rtw_deactivate() { wp_clear_scheduled_hook(&#39;rtw_cron&rsquo;); delete_option(&#39;rtw_initialized&rsquo;); delete_option(&#39;rtw_terms&rsquo;); delete_option(&#39;rtw_message&rsquo;); delete_option(&#39;rtw_subject&rsquo;); delete_option(&#39;rtw_email&rsquo;); } register_deactivation_hook(__FILE__, &#39;rtw_deactivate&rsquo;);</p>
+
+<p>/* Admin ==================================================================== */ function rtw_add_admin_menu(){ add_options_page(&#39;Remember The WordPress&rsquo;,&#39;Remember The WP&rsquo;,&#39;administrator&rsquo;,__FILE__,&#39;rtw_add_admin_page&rsquo;); } add_action(&#39;admin_menu&rsquo;,&#39;rtw_add_admin_menu&rsquo;);</p>
+
+<p>function rtw_add_admin_page(){ if(isset($_POST[&#39;posted&rsquo;]) === FALSE){ $posted = FALSE; }elseif(isset($_POST[&#39;posted&rsquo;]) === TRUE){ $posted = TRUE; }</p>
+
+<p>$unixtime_per_day = 86400; if($posted) { //Validation if(preg_match(&rsquo;/[1-3][0-9]|[1-9]/&rsquo;,intval($_POST[&#39;terms&rsquo;]) AND intval($_POST[&#39;terms&rsquo;]) &lt;= 30)){ update_option(&#39;rtw_terms&rsquo;,intval($_POST[&#39;terms&rsquo;] * $unixtime_per_day)); update_option(&#39;rtw_email&rsquo;,stripslashes($_POST[&#39;email&rsquo;])); update_option(&#39;rtw_subject&rsquo;,stripslashes($_POST[&#39;subject&rsquo;])); update_option(&#39;rtw_message&rsquo;,stripslashes($_POST[&#39;message&rsquo;])); $rtw_error = FALSE; }else{ $rtw_error = TRUE; } } ?&gt;</p>
+
+<p>&lt;?php //Admin Page Start<br>
+    //Updated Message<br>
+    if($posted === TRUE AND $rtw_error === FALSE) : ?&gt;</p>
+
+<p><strong>設定を保存しました</strong></p>
+
+<p>&lt;?php elseif($posted === TRUE AND $rtw_error === TRUE):?&gt;  </p>
+
+<p><strong>アラート発生日数は1-30の間の値を入力して下さい。</strong></p>
+
+<p>&lt;?php endif; ?&gt;</p>
+
+<h2>Remember The WordPress Settings</h2>
+
+<form method="post" action="&lt;?php%20echo%20str_replace(%20'%7E',%20'~',%20%24_SERVER%5B'REQUEST_URI'%5D);%20?&gt;">
+        <input type="hidden" name="posted" value="yes">
+        <table class="form-table">
+            <tr valign="top">
+                <th scope="row"><label for="terms">アラート発生日数<label></label></label></th>
+                <td>
+                    <input name="terms" type="text" id="terms" value="&lt;?php echo intval(get_option('rtw_terms') / $unixtime_per_day); ?&gt;" class="regular-text code"><br>
+                    1-30までの数字を入力してください。
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="email">送信先E-mailアドレス<label></label></label></th>
+                <td>
+                    <input name="email" type="text" id="email" value="&lt;?php echo htmlspecialchars(get_option('rtw_email'),ENT_QUOTES); ?&gt;" class="regular-text code"><br>
+                    アラートメールの送信先E-mailアドレスを入力してください。
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="terms">メールタイトル<label></label></label></th>
+                <td>
+                    <input name="subject" type="text" id="subject" value="&lt;?php echo htmlspecialchars(get_option('rtw_subject'),ENT_QUOTES); ?&gt;" class="regular-text code"><br>
+                    送信メッセージの「タイトル」を入力してください。
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="terms">メール本文<label></label></label></th>
+                <td>
+                <textarea name="message" id="message" cols="50" rows="10"><?php echo htmlspecialchars(get_option('rtw_message'),ENT_QUOTES); ?></textarea>
+                    <br>
+                    送信メッセージの「内容」を入力してください。
+                </td>
+            </tr>
+
+        </table>
+
+ <p class="submit">
+            <input type="submit" name="Submit" class="button-primary" value="変更を保存">
+        </p>
+    </form>
+
+<p>&lt;?php } ?&gt;[/cc]</p>
+
+<p>少々長いがへこたれずに頑張ってみていくことにしよう。（自分自身を鼓舞）</p>
+
+<h4>WordPressプラグインの作成方法</h4>
+
+<p>前提としてこれはWordPressプラグインなのでその大まかな作り方を紹介しよう。</p>
+
+<p>まず、単体のphpファイルか、もしくは同名のディレクトリにプラグイン用のファイルを作る。 （例：foo_plugin/foo_plugin.php）</p>
+
+<p>プラグインの各種情報は決まったコメントの書き方があるのでそれにしたがってファイル内先頭に書く。これがWordPressのプラグイン管理画面に出てくる情報になる。</p>
+
+<p>一番単純なプラグインとしては、プラグインを管理画面から有効にすると、プラグインのphpファイルがWordPressにincludeされる。よって適当な関数をプラグイン内で定義しておき、テーマの中で使うといったことが可能だ。（モチロン名前はぶつかる可能性がある。プラグイン名をprefixにした関数を作るか、プラグイン名のクラスに閉じ込めることが推奨されている。）</p>
+
+<p>これでWordPressの関数や変数、DBをプラグイン内からでも使うことが出来る。また、プラグイン用にactionやfilterといったフックをかける事ができる。この辺は公式ドキュメントに全関数リファレンスやプラグイン用のフックの説明がちゃんとあるのでPHPが分かれば理解するのは容易だ。（ <a href="http://wpdocs.sourceforge.jp/">Main Page - WordPress Codex 日本語版</a>）</p>
+
+<h4>擬似cron</h4>
+
+<p>今回のコードを理解する上でもう一つ必要になるのが、wp_schedule_event関数を使った擬似cronの仕組みだ。WordPressにはwp_schedule_event関数でcronのように定期スケジュールを登録することが出来る。こういう処理はcron daemonのように常に起動しているプロセスと連携する必要があり、一見単純なPHPウェブアプリだけでは無理に思えるが、Webからのユーザーリクエストのみをトリガーにcronのようなスケジュール実行を可能にしている。</p>
+
+<p>もちろんWebからのリクエスト頼みなのでアクセスがまったく来なければスケジュールした時間には実行されない擬似的な機能なので厳密な処理には向かない。しかし、一般的なサイトであれば大抵毎分１アクセスぐらいはあるので大体このぐらいの頻度でやって欲しいといった処理なら実用上は問題なさそうだ。</p>
+
+<p>参照： <a href="http://codex.wordpress.org/Function_Reference/wp_schedule_event">Function Reference/wp schedule event « WordPress Codex</a></p>
+
+<p>こんないい加減な仕組み使うなんてありえねー！とヤルタイプからは言われそうだが、phpのsession削除は同様の仕組みで行われている。（アクセスが来なければ永久にセッションファイルは消えない） 根本的なこの仕組の是非は兎も角、PHPの流儀に従った実装方法ではあると言える。</p>
+
+<p>参照： <a href="http://jp2.php.net/manual/ja/session.configuration.php#ini.session.gc_maxlifetime">PHP: 実行時設定 - Manual</a></p>
+
+<h4>Remenber The WordPress</h4>
+
+<p>まず、38行目でregister_activation_hook関数で自分自身のファイルのrtw_activate関数をactivation_hookに登録している。activationとはプラグイン管理画面でそのプラグインを「有効」にしたときのことだ。データベーステーブルを独自に持つようなプラグインでは大抵この場所でテーブルをCREATEしている。（WordPressはORMを提供していないので、各種プラグインのこの場所にはMySQLに特化したSQLが大抵使用されている。WordPressはプラグインエコシステムがキモであるため、コレのせいで他DBへの対応が非常に難しくなっている。）</p>
+
+<p>rtw_activate関数の中でwp_schedule_eventを使ってdailyで実行されるようにrtw_cronを登録している。</p>
+
+<p>あとは、40行目のget_latest_post_time関数で最終投稿日を取得して、管理画面で設定できる「何日更新が無かったらメールを送るか？」という値と比較してmb_send_mailでメールを送っている。</p>
+
+<p>殆どの行数は管理画面用なので長く見えるし大変そうだが、管理画面からプラグインの設定が出来るというのがWordPressユーザーに非常に訴える箇所なので重要だ。</p>
+
+<p>議論にコードで答えた事。（これが結構貴重なんだが）WordPress流儀に則った実装。管理画面まで手を抜かない所。等々、@terakuma a.k.a. 法務系PHPerは素晴らしい。それにRemember The MilkをパクったRemember The WordPressというプラグイン名も素敵だ。</p>
+
+<p>WordPressプラグインで困ったことがあったら@terakuma a.k.a. 法務系PHPerに相談してみたらいいかもしれない！</p>
+
+        </div>
+        <div id="disqus_thread" itemprop="headline"></div>
+          <script type="text/javascript">
+            window.disqus_shortname = "machidagithubio";
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = disqus_shortname; // required: replace example with your forum shortname
+        
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+      </div>
+    </div>
+    <div class="col-sm-12 col-xs-12">
+      <nav class="previous-next-nav">
+        <ul class="previous-next-nav__items">
+          <li class="previous-next-nav__item is-previous"><a href="/articles/20100706-article/" rel="prev" title="Previous article: コードDJ 第6回 - はやい！もうついたのか！" class="previous-next-nav__link">
+                  <i class="fa fa-angle-left previous-next-nav__icon is-previous"></i><span class="hidden-xs">コードDJ 第6回 - はやい！もうついたのか！</span></a><span class="previous-next-nav__label is-en">PREV</span>
+          </li>
+          <li class="previous-next-nav__item is-next"><a href="/articles/20100722-article/" rel="next" title="Next article: コードDJ 第8回 - AutoPagerize_DOMNodeInserted・・・だと・・・？" class="previous-next-nav__link">
+                  <span class="hidden-xs">コードDJ 第8回 - AutoPagerize_DOMNodeInserted・・・だと・・・？</span><i class="fa fa-angle-right previous-next-nav__icon is-next"></i></a><span class="previous-next-nav__label is-en">NEXT</span>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+    </div>
+    <footer class="footer" id="footer">
+      <div class="container">
+        <div class="footer__container">
+          <div class="row">
+            <div class="col-sm-8 col-xs-12">
+              <nav class="tags-nav footer-nav hidden-xs">
+                <div class="row">
+                  <div class="col-sm-3 col-xs-12">
+                    <h2 class="tags-nav__title footer-nav__title is-en">
+                      <i class="fa fa-tag tags-nav__title-icon footer-nav__title-icon"></i>Tags
+                    </h2>
+                  </div>
+                  <div class="col-sm-9 col-xs-12">
+                    <ul class="tags-nav__items footer-nav__items">
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/update/" class=" tags-nav__link is-en">update</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/design/" class=" tags-nav__link is-en">design</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/hatsudai/" class=" tags-nav__link is-en">hatsudai</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/web-service/" class=" tags-nav__link is-en">web-service</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/event/" class=" tags-nav__link is-en">event</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/help-me-hackers/" class=" tags-nav__link is-en">help-me-hackers</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/information/" class=" tags-nav__link is-en">information</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/ham-cutlet/" class=" tags-nav__link is-en">ham-cutlet</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/next-holiday/" class=" tags-nav__link is-en">next-holiday</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/dont-be-afraid-kuroigamen/" class=" tags-nav__link is-en">dont-be-afraid-kuroigamen</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/kuroigamen/" class=" tags-nav__link is-en">kuroigamen</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/works/" class=" tags-nav__link is-en">works</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/media/" class=" tags-nav__link is-en">media</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/kowabana/" class=" tags-nav__link is-en">kowabana</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/internship/" class=" tags-nav__link is-en">internship</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/kowanbana/" class=" tags-nav__link is-en">kowanbana</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/ios/" class=" tags-nav__link is-en">ios</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <nav class="archives-nav footer-nav hidden-xs">
+                <div class="row">
+                  <div class="col-sm-3 col-xs-12">
+                    <h2 class="archives-nav__title footer-nav__title is-en">
+                      <i class="fa fa-calendar-o archives-nav__title-icon footer-nav__title-icon"></i>Archives
+                    </h2>
+                  </div>
+                  <div class="col-sm-9 col-xs-12">
+                    <ul class="archives-nav__year-items footer-nav__items">
+                      <li class="archives-nav__year-item footer-nav__item">
+                        <a href="/articles/2016/" class="archives-nav__year-link is-en">2016</a>
+                        <ul class="archives-nav__month-items">
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2016/07/" class="archives-nav__month-link is-en">07</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2016/06/" class="archives-nav__month-link is-en">06</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2016/05/" class="archives-nav__month-link is-en">05</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2016/03/" class="archives-nav__month-link is-en">03</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2016/02/" class="archives-nav__month-link is-en">02</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2016/01/" class="archives-nav__month-link is-en">01</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="archives-nav__year-item footer-nav__item">
+                        <a href="/articles/2015/" class="archives-nav__year-link is-en">2015</a>
+                        <ul class="archives-nav__month-items">
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/12/" class="archives-nav__month-link is-en">12</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/11/" class="archives-nav__month-link is-en">11</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/10/" class="archives-nav__month-link is-en">10</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/09/" class="archives-nav__month-link is-en">09</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/08/" class="archives-nav__month-link is-en">08</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/07/" class="archives-nav__month-link is-en">07</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/06/" class="archives-nav__month-link is-en">06</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/05/" class="archives-nav__month-link is-en">05</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/04/" class="archives-nav__month-link is-en">04</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/02/" class="archives-nav__month-link is-en">02</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/01/" class="archives-nav__month-link is-en">01</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="archives-nav__year-item footer-nav__item">
+                        <a href="/articles/2014/" class="archives-nav__year-link is-en">2014</a>
+                        <ul class="archives-nav__month-items">
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/12/" class="archives-nav__month-link is-en">12</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/11/" class="archives-nav__month-link is-en">11</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/10/" class="archives-nav__month-link is-en">10</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/09/" class="archives-nav__month-link is-en">09</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/08/" class="archives-nav__month-link is-en">08</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/07/" class="archives-nav__month-link is-en">07</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/06/" class="archives-nav__month-link is-en">06</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/05/" class="archives-nav__month-link is-en">05</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/04/" class="archives-nav__month-link is-en">04</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/03/" class="archives-nav__month-link is-en">03</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="archives-nav__year-item footer-nav__item">
+                        <a href="/articles/2013/" class="archives-nav__year-link is-en">2013</a>
+                        <ul class="archives-nav__month-items">
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/12/" class="archives-nav__month-link is-en">12</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/11/" class="archives-nav__month-link is-en">11</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/09/" class="archives-nav__month-link is-en">09</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/08/" class="archives-nav__month-link is-en">08</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/07/" class="archives-nav__month-link is-en">07</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/06/" class="archives-nav__month-link is-en">06</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/05/" class="archives-nav__month-link is-en">05</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/04/" class="archives-nav__month-link is-en">04</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/03/" class="archives-nav__month-link is-en">03</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/02/" class="archives-nav__month-link is-en">02</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/01/" class="archives-nav__month-link is-en">01</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="archives-nav__year-item footer-nav__item">
+                        <a href="/articles/2012/" class="archives-nav__year-link is-en">2012</a>
+                        <ul class="archives-nav__month-items">
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/12/" class="archives-nav__month-link is-en">12</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/11/" class="archives-nav__month-link is-en">11</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/10/" class="archives-nav__month-link is-en">10</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/09/" class="archives-nav__month-link is-en">09</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/08/" class="archives-nav__month-link is-en">08</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/07/" class="archives-nav__month-link is-en">07</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/06/" class="archives-nav__month-link is-en">06</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/05/" class="archives-nav__month-link is-en">05</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/04/" class="archives-nav__month-link is-en">04</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/03/" class="archives-nav__month-link is-en">03</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/02/" class="archives-nav__month-link is-en">02</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/01/" class="archives-nav__month-link is-en">01</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="archives-nav__year-item footer-nav__item">
+                        <a href="/articles/2011/" class="archives-nav__year-link is-en">2011</a>
+                        <ul class="archives-nav__month-items">
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/12/" class="archives-nav__month-link is-en">12</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/10/" class="archives-nav__month-link is-en">10</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/09/" class="archives-nav__month-link is-en">09</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/08/" class="archives-nav__month-link is-en">08</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/07/" class="archives-nav__month-link is-en">07</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/06/" class="archives-nav__month-link is-en">06</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/05/" class="archives-nav__month-link is-en">05</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/04/" class="archives-nav__month-link is-en">04</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/02/" class="archives-nav__month-link is-en">02</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="archives-nav__year-item footer-nav__item">
+                        <a href="/articles/2010/" class="archives-nav__year-link is-en">2010</a>
+                        <ul class="archives-nav__month-items">
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/12/" class="archives-nav__month-link is-en">12</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/11/" class="archives-nav__month-link is-en">11</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/10/" class="archives-nav__month-link is-en">10</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/09/" class="archives-nav__month-link is-en">09</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/08/" class="archives-nav__month-link is-en">08</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/07/" class="archives-nav__month-link is-en">07</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/06/" class="archives-nav__month-link is-en">06</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/05/" class="archives-nav__month-link is-en">05</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/04/" class="archives-nav__month-link is-en">04</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+              <div class="footer__about-author">
+                <small class="footer__copyright"><span class="footer__copyright-copy is-en">&copy;</span><span class="footer__copyright-year is-en">2016</span><span class="footer__copyright-author is-ja">FJÖRD,LLC.</span><span class="footer__copyright-reserved is-en">All rights reserved.</span></small><nav class="sns-links">
+                  <ul class="sns-links__items">
+                    <li class="sns-links__item"><a href="https://twitter.com/machida" class="sns-links__link">
+                            <i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li class="sns-links__item"><a href="https://www.facebook.com/teppeimachida" class="sns-links__link">
+                            <i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li class="sns-links__item"><a href="https://github.com/machida" class="sns-links__link">
+                            <i class="fa fa-github-alt"></i></a>
+                    </li>
+                    <li class="sns-links__item"><a href="http://www.amazon.co.jp/registry/wishlist/3CR7OJLSG01ZV/" class="sns-links__link">
+                            <i class="fa fa-amazon"></i></a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer><script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', "UA-58200227-1", 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

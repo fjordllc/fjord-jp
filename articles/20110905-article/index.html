@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <link href="/stylesheets/application.css" rel="stylesheet" /><link href="/stylesheets/highlight.css" rel="stylesheet" /><link href="//fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" /><script src="/javascripts/application.js"></script><title>Github for Mac を使ってデザイナーがブランチ作る、怖話の開発レポート - FJÖRD,LLC.</title>
+    <meta content="只今開発中のサービス、スマホで怖い話が17,000話以上が無料で読めるサイト「 怖話」のIssueをGithub for Macを使ってブランチを作って作業をしたので、それのレポート。今回はこのIssueをやってみます。開発に..." name="description" />
+    <meta content="article" property="og:type" />
+    <meta content="Github for Mac を使ってデザイナーがブランチ作る、怖話の開発レポート - FJÖRD,LLC." property="og:title" />
+    <meta content="只今開発中のサービス、スマホで怖い話が17,000話以上が無料で読めるサイト「 怖話」のIssueをGithub for Macを使ってブランチを作って作業をしたので、それのレポート。今回はこのIssueをやってみます。開発に..." property="og:description" />
+    <meta content="http://machida.github.io//articles/20110905-article/" property="og:url" />
+    <meta content="shared/og-image.png" property="og:image" />
+    <meta content="FJÖRD,LLC. We Build Apps" property="og:site_name" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="@machida" name="twitter:site" />
+    <meta content="@machida" name="twitter:creator" />
+    <meta content="Github for Mac を使ってデザイナーがブランチ作る、怖話の開発レポート - FJÖRD,LLC." name="twitter:title" />
+    <meta content="只今開発中のサービス、スマホで怖い話が17,000話以上が無料で読めるサイト「 怖話」のIssueをGithub for Macを使ってブランチを作って作業をしたので、それのレポート。今回はこのIssueをやってみます。開発に..." name="twitter:description" />
+    <meta content="shared/og-image.png" name="twitter:image:src" />
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+  </head>
+  <body itemscope="" itemtype="http://schema.org/Blog">
+    <header class="header">
+      <div class="container">
+        <div class="header__container">
+          <p class="header__site-name">
+            合同会社フィヨルド 
+          </p>
+          <img src="/images/icicle.svg" class="header__icicle-image" alt="Icicle" /><a href="/contact" class="header__contact-link"><i class="fa fa-envelope-o"></i></a>
+        </div>
+      </div>
+    </header><div class="hero">
+      <div class="container">
+        <div class="hero__container">
+          <h1 class="hero__site-title"><a href="/" data-text="FJÖRD,LLC." class="hero__site-title-link">
+                    <img src="/images/logo.svg" alt="FJÖRD,LLC." class="hero__site-title-link-image" /></a>
+          </h1>
+          <nav class="global-nav">
+            <ul class="global-nav__items">
+              <li class="global-nav__item"><a href="/articles" class="global-nav__item-link is-en">
+                            Articles</a>
+              </li>
+              <li class="global-nav__item"><a href="" class="global-nav__item-link is-en">
+                            Contact</a>
+              </li>
+              <li class="global-nav__item"><a href="" class="global-nav__item-link is-en">
+                            Access</a>
+              </li>
+              <li class="global-nav__item"><a href="" class="global-nav__item-link is-en">
+                            Internship</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="container article__container" itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <div class="row">
+          <div class="offset-sm-2 col-sm-8 col-xs-12">
+            <div class="article__content">
+              <time class="article__created-at is-en" itemprop="dateCreated"><span class="article__created-at-date">09/05</span><span class="article__created-at-year">2011</span></time>
+              <div class="article__header">
+                <h1 class="article__title" itemprop="headline"><a href="/articles/20110905-article/" class="article__title-link is-ja">
+                              Github for Mac を使ってデザイナーがブランチ作る、怖話の開発レポート</a>
+                </h1>
+                <div class="article__tags" itemprop="keywords">
+                  <ul class="article__tags-items">
+                    <li class="article__tags-item">
+                      <a href="/articles/tags/kowabana/" class="article__tags-link is-en">kowabana</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="article__body post-body js-target-blank" itemprop="articleBody">
+                <p>只今開発中のサービス、スマホで怖い話が17,000話以上が無料で読めるサイト「 <a href="http://kowabana.jp/">怖話</a>」のIssueをGithub for Macを使ってブランチを作って作業をしたので、それのレポート。</p>
+                
+                <h4>今回はこのIssueをやってみます。</h4>
+                
+                <p>開発にはGithubにリポジトリを置いて、Issueの管理もGithubを使ってます。</p>
+                
+                <p><a href="http://www.flickr.com/photos/fjord_llc/6114565692/" title="#82: 沢山話があることを表すデザイン - Issues - komagata/kowabana - GitHub by 町田 哲平（teppei machida）, on Flickr"><img src="http://farm7.static.flickr.com/6087/6114565692_943b4e7d9d.jpg" alt="#82: 沢山話があることを表すデザイン - Issues - komagata/kowabana - GitHub" /></a></p>
+                
+                <h4>このIssueで解決させたい問題と解決策</h4>
+                
+                <h5>怖話には17,000話以上もの怖い話があるんだけど、全然そんなにあるように見えない！</h5>
+                
+                <p>なので、トップページにババンッと現在の怖話総数を表示します。</p>
+                
+                <h5>サイトを開いたらすぐに怖話を読みたい！</h5>
+                
+                <p>怖話の総数の横にランダムで怖話の個別ページに飛ぶリンクを配置します。</p>
+                
+                <h4>今回の簡単なラフ</h4>
+                
+                <p><a href="http://www.flickr.com/photos/fjord_llc/6114629998/" title="moc by 町田 哲平（teppei machida）, on Flickr"><img src="http://farm7.static.flickr.com/6067/6114629998_bc23128bf2_z.jpg" alt="moc" /></a></p>
+                
+                <p>こんな感じで作ってみようと思います。</p>
+                
+                <h4>ブランチ作成</h4>
+                
+                <p>今回はデザイン（コーディングも含む）を先に作って、後からkomagataさんにその部分にシステムを入れてもらう、っていう手順で進めていきます。</p>
+                
+                <p>まずは今回のIssue用のブランチを作成。 Github for Macを使うとブランチ作成がすごい楽。Github for Macを使って作業を進めていきます。</p>
+                
+                <p>Github for Macでkowabanaリポジトリを表示。Wクリック。</p>
+                
+                <p><a href="http://www.flickr.com/photos/fjord_llc/6114640716/" title="GitHub by 町田 哲平（teppei machida）, on Flickr"><img src="http://farm7.static.flickr.com/6199/6114640716_c6330fc1a3.jpg" alt="GitHub" /></a></p>
+                
+                <p>ブランチを表示。</p>
+                
+                <p><a href="http://www.flickr.com/photos/fjord_llc/6114096367/" title="GitHub by 町田 哲平（teppei machida）, on Flickr"><img src="http://farm7.static.flickr.com/6210/6114096367_4b7425882d.jpg" alt="GitHub" /></a></p>
+                
+                <p>ブランチを追加。今回は「Issue82」というブランチを作りました。</p>
+                
+                <p><a href="http://www.flickr.com/photos/fjord_llc/6115206259/" title="branch by 町田 哲平（teppei machida）, on Flickr"><img src="http://farm7.static.flickr.com/6080/6115206259_df38e81c56.jpg" alt="branch" /></a></p>
+                
+                <p>Issue82ブランチの作成直後は、Issue82ブランチが選択された状態になります。</p>
+                
+                <p><a href="http://www.flickr.com/photos/fjord_llc/6115756186/" title="github by 町田 哲平（teppei machida）, on Flickr"><img src="http://farm7.static.flickr.com/6201/6115756186_70b07aa226.jpg" alt="github" /></a></p>
+                
+                <p>これだけで、デザイナーにとってはちょっと怖いブランチの作成作業があっという間に完了。 UIも直感的！</p>
+                
+                <h4>デザイン＋コーディング</h4>
+                
+                <p>では、先ほど作ったdesignブランチにデザインを入れていきます。 ローカルで怖話を立ち上げて作業開始！</p>
+                
+                <p>ちょこちょこっといじって … 完成。</p>
+                
+                <p><a href="http://www.flickr.com/photos/fjord_llc/6115646924/" title="iOSシミュレータ - iPhone / iOS 4.3 (8F192) by 町田 哲平（teppei machida）, on Flickr"><img src="http://farm7.static.flickr.com/6088/6115646924_b850f0bbca_z.jpg" alt="iOSシミュレータ - iPhone / iOS 4.3 (8F192)" /></a></p>
+                
+                <h4>リモートリポジトリへpush</h4>
+                
+                <p>まだデザインとコーディングが出来ただけで、システムは入っていない状態。 このブランチをpushして、komagataさんにシステムを入れてもらって、masterのブランチにマージしてもらいます。</p>
+                
+                <h5>Github for Macを使ったcommit</h5>
+                
+                <p>まずは作業内容をcommit。commitもGithub for Macを使ってやってみます。</p>
+                
+                <p>「Changes」をクリック。</p>
+                
+                <p><a href="http://www.flickr.com/photos/fjord_llc/6115834970/" title="changes2 by 町田 哲平（teppei machida）, on Flickr"><img src="http://farm7.static.flickr.com/6090/6115834970_d4c930a2d0.jpg" alt="changes2" /></a></p>
+                
+                <p>今回の変更点、追加画像ファイルなどが表示されています。チェックボックスでcommitする内容を選択できるのはかなり便利！</p>
+                
+                <p>「1回のcommitには一つのIssueだけにする」、という決まりがあったのにcommitを忘れていた、なんてことがあった場合、commitを小分けすることが出来ます。 今回は一つのIssueの作業しかしてないので、全部のチェックボックスにチェックを入れます。</p>
+                
+                <p><a href="http://www.flickr.com/photos/fjord_llc/6115226043/" title="select by 町田 哲平（teppei machida）, on Flickr"><img src="http://farm7.static.flickr.com/6202/6115226043_63785dffc3.jpg" alt="select" /></a></p>
+                
+                <p>commitメッセージを記入したら「Commit Chenges」ボタンをクリックしてcommit。</p>
+                
+                <p>Issue82ブランチにcommitしましたよ、と表示されました。</p>
+                
+                <p><a href="http://www.flickr.com/photos/fjord_llc/6115768834/" title="commiting by 町田 哲平（teppei machida）, on Flickr"><img src="http://farm7.static.flickr.com/6082/6115768834_2db8a22102.jpg" alt="commiting" /></a></p>
+                
+                <h5>push</h5>
+                
+                <p>では、いよいよリモートリポジトリへpush。</p>
+                
+                <p>Branchesに戻って、Issue82ブランチの「Publish」ボタンをクリック。</p>
+                
+                <p><a href="http://www.flickr.com/photos/fjord_llc/6115200103/" title="GitHub by 町田 哲平（teppei machida）, on Flickr"><img src="http://farm7.static.flickr.com/6070/6115200103_04926f4676.jpg" alt="GitHub" /></a></p>
+                
+                <p>pushをすると、lingrの社内チャットにメッセージが流れるようになってます。</p>
+                
+                <p><a href="http://www.flickr.com/photos/fjord_llc/6115760488/" title="lingr by 町田 哲平（teppei machida）, on Flickr"><img src="http://farm7.static.flickr.com/6181/6115760488_7fe3ae5afa.jpg" alt="lingr" /></a></p>
+                
+                <p>では、Githubに行って確認してみます。</p>
+                
+                <p><a href="http://www.flickr.com/photos/fjord_llc/6115304797/" title="complete by 町田 哲平（teppei machida）, on Flickr"><img src="http://farm7.static.flickr.com/6197/6115304797_5ccf1e010c.jpg" alt="complete" /></a></p>
+                
+                <p>出来ました！</p>
+                
+                <p>Github for Macを使えばデザイナーでも簡単にブランチを作ってpushが出来てしまうのでオススメ。</p>
+                
+              </div>
+              <div id="disqus_thread" itemprop="headline"></div>
+                <script type="text/javascript">
+                  window.disqus_shortname = "machidagithubio";
+                  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                  var disqus_shortname = disqus_shortname; // required: replace example with your forum shortname
+              
+                  /* * * DON'T EDIT BELOW THIS LINE * * */
+                  (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                  })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              
+            </div>
+          </div>
+          <div class="col-sm-12 col-xs-12">
+            <nav class="previous-next-nav">
+              <ul class="previous-next-nav__items">
+                <li class="previous-next-nav__item is-previous"><a href="/articles/20110828-article/" rel="prev" title="Previous article: 小規模Webサービス向け安上がりシステム構成と開発フロー（怖話.jp）" class="previous-next-nav__link">
+                        <i class="fa fa-angle-left previous-next-nav__icon is-previous"></i><span class="hidden-xs">小規模Webサービス向け安上がりシステム構成と開発フロー（怖話.jp）</span></a><span class="previous-next-nav__label is-en">PREV</span>
+                </li>
+                <li class="previous-next-nav__item is-next"><a href="/articles/20110916-article/" rel="next" title="Next article: デザイナーとプログラマー、zip納品 vs Githubインテグレーション" class="previous-next-nav__link">
+                        <span class="hidden-xs">デザイナーとプログラマー、zip納品 vs Githubインテグレーション</span><i class="fa fa-angle-right previous-next-nav__icon is-next"></i></a><span class="previous-next-nav__label is-en">NEXT</span>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer" id="footer">
+      <div class="container">
+        <div class="footer__container">
+          <div class="row">
+            <div class="col-sm-8 col-xs-12">
+              <nav class="tags-nav footer-nav hidden-xs">
+                <div class="row">
+                  <div class="col-sm-3 col-xs-12">
+                    <h2 class="tags-nav__title footer-nav__title is-en">
+                      <i class="fa fa-tag tags-nav__title-icon footer-nav__title-icon"></i>Tags
+                    </h2>
+                  </div>
+                  <div class="col-sm-9 col-xs-12">
+                    <ul class="tags-nav__items footer-nav__items">
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/update/" class=" tags-nav__link is-en">update</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/design/" class=" tags-nav__link is-en">design</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/hatsudai/" class=" tags-nav__link is-en">hatsudai</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/web-service/" class=" tags-nav__link is-en">web-service</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/event/" class=" tags-nav__link is-en">event</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/help-me-hackers/" class=" tags-nav__link is-en">help-me-hackers</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/information/" class=" tags-nav__link is-en">information</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/ham-cutlet/" class=" tags-nav__link is-en">ham-cutlet</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/next-holiday/" class=" tags-nav__link is-en">next-holiday</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/dont-be-afraid-kuroigamen/" class=" tags-nav__link is-en">dont-be-afraid-kuroigamen</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/kuroigamen/" class=" tags-nav__link is-en">kuroigamen</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/works/" class=" tags-nav__link is-en">works</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/media/" class=" tags-nav__link is-en">media</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/kowabana/" class=" tags-nav__link is-en">kowabana</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/internship/" class=" tags-nav__link is-en">internship</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/kowanbana/" class=" tags-nav__link is-en">kowanbana</a>
+                      </li>
+                      <li class="tags-nav__item footer-nav__item">
+                        <a href="/articles/tags/ios/" class=" tags-nav__link is-en">ios</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <nav class="archives-nav footer-nav hidden-xs">
+                <div class="row">
+                  <div class="col-sm-3 col-xs-12">
+                    <h2 class="archives-nav__title footer-nav__title is-en">
+                      <i class="fa fa-calendar-o archives-nav__title-icon footer-nav__title-icon"></i>Archives
+                    </h2>
+                  </div>
+                  <div class="col-sm-9 col-xs-12">
+                    <ul class="archives-nav__year-items footer-nav__items">
+                      <li class="archives-nav__year-item footer-nav__item">
+                        <a href="/articles/2016/" class="archives-nav__year-link is-en">2016</a>
+                        <ul class="archives-nav__month-items">
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2016/07/" class="archives-nav__month-link is-en">07</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2016/06/" class="archives-nav__month-link is-en">06</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2016/05/" class="archives-nav__month-link is-en">05</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2016/03/" class="archives-nav__month-link is-en">03</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2016/02/" class="archives-nav__month-link is-en">02</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2016/01/" class="archives-nav__month-link is-en">01</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="archives-nav__year-item footer-nav__item">
+                        <a href="/articles/2015/" class="archives-nav__year-link is-en">2015</a>
+                        <ul class="archives-nav__month-items">
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/12/" class="archives-nav__month-link is-en">12</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/11/" class="archives-nav__month-link is-en">11</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/10/" class="archives-nav__month-link is-en">10</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/09/" class="archives-nav__month-link is-en">09</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/08/" class="archives-nav__month-link is-en">08</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/07/" class="archives-nav__month-link is-en">07</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/06/" class="archives-nav__month-link is-en">06</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/05/" class="archives-nav__month-link is-en">05</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/04/" class="archives-nav__month-link is-en">04</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/02/" class="archives-nav__month-link is-en">02</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2015/01/" class="archives-nav__month-link is-en">01</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="archives-nav__year-item footer-nav__item">
+                        <a href="/articles/2014/" class="archives-nav__year-link is-en">2014</a>
+                        <ul class="archives-nav__month-items">
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/12/" class="archives-nav__month-link is-en">12</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/11/" class="archives-nav__month-link is-en">11</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/10/" class="archives-nav__month-link is-en">10</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/09/" class="archives-nav__month-link is-en">09</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/08/" class="archives-nav__month-link is-en">08</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/07/" class="archives-nav__month-link is-en">07</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/06/" class="archives-nav__month-link is-en">06</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/05/" class="archives-nav__month-link is-en">05</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/04/" class="archives-nav__month-link is-en">04</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2014/03/" class="archives-nav__month-link is-en">03</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="archives-nav__year-item footer-nav__item">
+                        <a href="/articles/2013/" class="archives-nav__year-link is-en">2013</a>
+                        <ul class="archives-nav__month-items">
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/12/" class="archives-nav__month-link is-en">12</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/11/" class="archives-nav__month-link is-en">11</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/09/" class="archives-nav__month-link is-en">09</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/08/" class="archives-nav__month-link is-en">08</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/07/" class="archives-nav__month-link is-en">07</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/06/" class="archives-nav__month-link is-en">06</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/05/" class="archives-nav__month-link is-en">05</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/04/" class="archives-nav__month-link is-en">04</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/03/" class="archives-nav__month-link is-en">03</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/02/" class="archives-nav__month-link is-en">02</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2013/01/" class="archives-nav__month-link is-en">01</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="archives-nav__year-item footer-nav__item">
+                        <a href="/articles/2012/" class="archives-nav__year-link is-en">2012</a>
+                        <ul class="archives-nav__month-items">
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/12/" class="archives-nav__month-link is-en">12</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/11/" class="archives-nav__month-link is-en">11</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/10/" class="archives-nav__month-link is-en">10</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/09/" class="archives-nav__month-link is-en">09</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/08/" class="archives-nav__month-link is-en">08</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/07/" class="archives-nav__month-link is-en">07</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/06/" class="archives-nav__month-link is-en">06</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/05/" class="archives-nav__month-link is-en">05</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/04/" class="archives-nav__month-link is-en">04</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/03/" class="archives-nav__month-link is-en">03</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/02/" class="archives-nav__month-link is-en">02</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2012/01/" class="archives-nav__month-link is-en">01</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="archives-nav__year-item footer-nav__item">
+                        <a href="/articles/2011/" class="archives-nav__year-link is-en">2011</a>
+                        <ul class="archives-nav__month-items">
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/12/" class="archives-nav__month-link is-en">12</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/10/" class="archives-nav__month-link is-en">10</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/09/" class="archives-nav__month-link is-en">09</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/08/" class="archives-nav__month-link is-en">08</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/07/" class="archives-nav__month-link is-en">07</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/06/" class="archives-nav__month-link is-en">06</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/05/" class="archives-nav__month-link is-en">05</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/04/" class="archives-nav__month-link is-en">04</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2011/02/" class="archives-nav__month-link is-en">02</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="archives-nav__year-item footer-nav__item">
+                        <a href="/articles/2010/" class="archives-nav__year-link is-en">2010</a>
+                        <ul class="archives-nav__month-items">
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/12/" class="archives-nav__month-link is-en">12</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/11/" class="archives-nav__month-link is-en">11</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/10/" class="archives-nav__month-link is-en">10</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/09/" class="archives-nav__month-link is-en">09</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/08/" class="archives-nav__month-link is-en">08</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/07/" class="archives-nav__month-link is-en">07</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/06/" class="archives-nav__month-link is-en">06</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/05/" class="archives-nav__month-link is-en">05</a>
+                          </li>
+                          <li class="archives-nav__month-item">
+                            <a href="/articles/2010/04/" class="archives-nav__month-link is-en">04</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+              <div class="footer__about-author">
+                <small class="footer__copyright"><span class="footer__copyright-copy is-en">&copy;</span><span class="footer__copyright-year is-en">2016</span><span class="footer__copyright-author is-ja">FJÖRD,LLC.</span><span class="footer__copyright-reserved is-en">All rights reserved.</span></small><nav class="sns-links">
+                  <ul class="sns-links__items">
+                    <li class="sns-links__item"><a href="https://twitter.com/machida" class="sns-links__link">
+                            <i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li class="sns-links__item"><a href="https://www.facebook.com/teppeimachida" class="sns-links__link">
+                            <i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li class="sns-links__item"><a href="https://github.com/machida" class="sns-links__link">
+                            <i class="fa fa-github-alt"></i></a>
+                    </li>
+                    <li class="sns-links__item"><a href="http://www.amazon.co.jp/registry/wishlist/3CR7OJLSG01ZV/" class="sns-links__link">
+                            <i class="fa fa-amazon"></i></a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer><script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', "UA-58200227-1", 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
